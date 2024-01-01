@@ -37,6 +37,9 @@ mongoose
   })
   .catch((err) => console.log(err));
 app.use(express.static(path.join(__dirname, 'build')));
+router.get('/', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'build')});
+});
 app.use(cors({origin:['http://localhost:3000']}))
 app.use(express.json())
 app.get('/test',async(req, res)=>{
