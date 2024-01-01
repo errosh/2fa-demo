@@ -37,6 +37,9 @@ mongoose
   })
   .catch((err) => console.log(err));
 app.use(express.static(path.join(__dirname, 'build')));
+app.get("/hello",(req, res) => {
+  res.send("Hello World");
+})
 router.get('/', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, 'build')});
 });
